@@ -31,12 +31,11 @@ entity A2601 is
 		r: out std_logic;
 		pa: inout std_logic_vector(7 downto 0);
 		pb: inout std_logic_vector(7 downto 0);
-		paddle_0: in std_logic_vector(7 downto 0);
-		paddle_1: in std_logic_vector(7 downto 0);
-		paddle_ena1: in std_logic;
-		paddle_2: in std_logic_vector(7 downto 0);
-		paddle_3: in std_logic_vector(7 downto 0);
-		paddle_ena2: in std_logic;
+		inpt03_chg: out std_logic;
+		inpt0: in std_logic;
+		inpt1: in std_logic;
+		inpt2: in std_logic;
+		inpt3: in std_logic;
 		inpt4: in std_logic;
 		inpt5: in std_logic;
 		colu: out std_logic_vector(6 downto 0);
@@ -54,7 +53,8 @@ entity A2601 is
 		ph0_en_out: out std_logic;
 		ph2_out: out std_logic;
 		ph2_en_out: out std_logic;
-		pal: in std_logic
+		pal: in std_logic;
+		decomb: in std_logic
 	);
 end A2601;
 
@@ -133,15 +133,15 @@ port map(
 	au1        => au1,
 	av0        => av0,
 	av1        => av1,
-	paddle_0   => paddle_0,
-	paddle_1   => paddle_1,
-	paddle_ena1=> paddle_ena1,
-	paddle_2   => paddle_2,
-	paddle_3   => paddle_3,
-	paddle_ena2=> paddle_ena2,
+	inpt03_chg => inpt03_chg,
+	inpt0      => inpt0,
+	inpt1      => inpt1,
+	inpt2      => inpt2,
+	inpt3      => inpt3,
 	inpt4      => inpt4,
 	inpt5      => inpt5,
-	pal        => pal
+	pal        => pal,
+	decomb     => decomb
 );
 
 tia_cs <= '1' when (cpu_a(12) = '0') and (cpu_a(7) = '0') else '0';
